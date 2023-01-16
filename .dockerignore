@@ -1,0 +1,11 @@
+node_modules
+logs
+npm-debug.log
+build
+.env*
+Dockerfile
+docker-compose.yml
+
+# docker volumes
+.docker_node_modules
+.docker_redis

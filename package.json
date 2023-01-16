@@ -1,0 +1,28 @@
+{
+	"name": "redis-node-playground",
+	"version": "1.0.0",
+	"description": "",
+	"private": true,
+	"scripts": {
+		"start": "ts-node-dev ./src/app.ts"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/cerino-ligutom/redis-node-playground.git"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/cerino-ligutom/redis-node-playground/issues"
+	},
+	"homepage": "https://github.com/cerino-ligutom/redis-node-playground#readme",
+	"devDependencies": {
+		"@types/express": "^4.17.15",
+		"@types/node": "^18.11.18",
+		"ts-node-dev": "^2.0.0",
+		"typescript": "^4.9.4"
+	},
+	"dependencies": {
+		"express": "^4.18.2",
+		"ioredis": "^5.2.5"
+	}
+}

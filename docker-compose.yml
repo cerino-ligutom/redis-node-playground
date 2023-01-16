@@ -1,0 +1,38 @@
+version: '3'
+services:
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    user: node
+    command: npm start
+    restart: always
+    volumes:
+      - ./:/usr/src/app
+      # IMPORTANT: If you are using Windows, you might want to uncomment the entry below.
+      # https://jdlm.info/articles/2019/09/06/lessons-building-node-app-docker.html#the-node_modules-volume-trick
+      # - ./.docker_node_modules:/usr/src/app/node_modules # https://stackoverflow.com/a/32785014
+    depends_on:
+      - redis
+    ports:
+      - '8080:8080'
+      - '9229:9229'
+    tty: true
+
+  redis:
+    image: 'redis:7-alpine'
+    user: root
+    restart: always
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./.docker_redis:/data
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    user: root
+    restart: always
+    ports:
+      - '8081:8081'
+    environment:
+      - REDIS_HOSTS=local:redis:6379
